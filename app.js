@@ -55,5 +55,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
+if (!module.parent) {
+  app.listen(3001);
+  console.log("Express started at 3001");
+}
 
 module.exports = app;
