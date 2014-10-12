@@ -11,6 +11,7 @@ var routes = require('./routes/index');
 //var users = require('./routes/users');
 
 var Idea = require("./api/idea");
+var User = require("./api/user");
 
 mongoose.connect("mongodb://localhost/ThacksIdea");
 
@@ -36,25 +37,20 @@ app.use(bodyParser.urlencoded());
 app.use('/', routes);
 //app.use('/users', users);
 
-/// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
 
-/// error handlers
-error = function(status, msg) {
-  var err;
-  err = new Error(msg);
-  err.status = status;
-  return err;
-};
+//User 操作
+app.post('/user', User.newUser);
+app.get('user', User.listUser);
 
 //Idea 操作
 app.post('/idea',Idea.newIdea);
 app.get('/idea',Idea.listIdea);
 
+
+app.get('/users', function(req, res, next) {
+    //return next(error(401, 'user list is empty'));
+    return res.send("test_user");
+});
 
 
 // development error handler
@@ -69,6 +65,21 @@ if (app.get('env') === 'development') {
     });
 }
 
+
+/// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+/// error handlers
+error = function(status, msg) {
+    var err;
+    err = new Error(msg);
+    err.status = status;
+    return err;
+};
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
