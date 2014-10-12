@@ -6,9 +6,328 @@
 		<title>THacks Ideas</title>
 		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 		<script src="../bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+        <script src="./controllers/home.js"></script>
 	</head>
 
-	<body>
+    <body data-ng-app="akoenig.deckgrid.demo" class="ng-scope">
+
+    <a href="https://github.com/akoenig/angular-deckgrid"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <!-- ngView:  --><div class="container ng-scope" data-ng-view=""><div class="l-header ng-scope">
+        <h1>angular-deckgrid</h1>
+        <h2>A lightweight masonry-like grid for AngularJS.</h2>
+    </div>
+
+    <nav class="l-navigation ng-scope">
+        <a class="button" href="https://github.com/HackerEcology/HackathonIdeaBoard">Download</a>
+    </nav>
+
+    <div class="deckgrid clearfix ng-scope ng-isolate-scope" deckgrid="" source="photos" cardtemplate="templates/deckgrid-card.html"><!-- ngRepeat: column in columns --><div data-ng-repeat="column in columns" class="column size-1-5"><!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/abstract" data-ng-src="http://lorempixel.com/400/300/abstract" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Awesome photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/technics" data-ng-src="http://lorempixel.com/400/300/technics" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Silly photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/sports" data-ng-src="http://lorempixel.com/400/300/sports" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Neat photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/nightlife" data-ng-src="http://lorempixel.com/400/300/nightlife" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Lovely photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --></div><!-- end ngRepeat: column in columns --><div data-ng-repeat="column in columns" class="column size-1-5"><!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/450/400/city" data-ng-src="http://lorempixel.com/450/400/city" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Great photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/410/350/sports" data-ng-src="http://lorempixel.com/410/350/sports" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Weird photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/nightlife" data-ng-src="http://lorempixel.com/400/300/nightlife" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Bumpy photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/nature" data-ng-src="http://lorempixel.com/400/300/nature" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">A "wow" photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --></div><!-- end ngRepeat: column in columns --><div data-ng-repeat="column in columns" class="column size-1-5"><!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/people" data-ng-src="http://lorempixel.com/400/300/people" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Strange photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/nightlife" data-ng-src="http://lorempixel.com/400/300/nightlife" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Modern photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/380/nature" data-ng-src="http://lorempixel.com/400/380/nature" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Brilliant photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/abstract" data-ng-src="http://lorempixel.com/400/300/abstract" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Bodacious photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --></div><!-- end ngRepeat: column in columns --><div data-ng-repeat="column in columns" class="column size-1-5"><!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/transport" data-ng-src="http://lorempixel.com/400/300/transport" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">A photo?</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/nature" data-ng-src="http://lorempixel.com/400/300/nature" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Classical photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/480/300/technics" data-ng-src="http://lorempixel.com/480/300/technics" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Excellent photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --></div><!-- end ngRepeat: column in columns --><div data-ng-repeat="column in columns" class="column size-1-5"><!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/450/300/fashion" data-ng-src="http://lorempixel.com/450/300/fashion" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">What a photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/420/300/abstract" data-ng-src="http://lorempixel.com/420/300/abstract" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Dynamic photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --><!-- ngInclude: cardTemplate --><div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/sports" data-ng-src="http://lorempixel.com/400/300/sports" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Gorgeous photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div><!-- end ngRepeat: card in column --></div><!-- end ngRepeat: column in columns --></div>
+
+    <div class="l-footer ng-scope">
+        <a href="http://iam.andrekoenig.info" class="hint--left hint--rounded" data-hint="Hey, I'm André">
+            <small>built by</small>
+            <img class="image-round" width="50" src="images/andre.png">
+        </a>
+    </div>
+    </div>
+
+    <script src="scripts/vendor/angular.min.js"></script>
+    <script src="scripts/vendor/angular-route.min.js"></script>
+    <script src="scripts/angular-deckgrid.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/directives/imageloaded.js"></script>
+
+    </body>
+    <div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope"><div class="photo ng-scope">
+
+        <a href="" data-ng-click="card.showIndex = !card.showIndex">
+            <!-- ngIf: card.showIndex -->
+
+            <div class="photo-wrapper">
+                <img src="http://lorempixel.com/400/300/abstract" data-ng-src="http://lorempixel.com/400/300/abstract" class="animation-fade animation-faded" data-imageloaded="" data-loadedclass="animation-faded">
+            </div>
+
+
+            <div class="photo-description">
+                <h3 class="ng-binding">Awesome photo</h3>
+                <p>Nice photo, eh.</p>
+            </div>
+        </a>
+    </div></div>
 
 		<div class="container" >
 			<div class="row">
