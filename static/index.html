@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>THacks Ideas</title>
+		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+		<script src="../bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+	</head>
+
+	<body>
+
+		<div class="container" >
+			<div class="row">
+				<!--add your own quote-->
+			</div>
+			<div class="row">
+					<!--quote search-->
+				<div class="col-sm-2 col-md-2">
+			    </div>
+				<div class="col-sm-8 col-md-8">
+					<!--resent added quotes-->
+					<br>
+					<div>
+						<form role="search" ng-submit='getQuote();'>
+					        <div class="input-group">
+					            <input ng-model="searchtext" type="search" class="form-control" placeholder="search insight (not being made now)" style="margin-top:0px" autofocus>
+						        <div class="input-group-btn">
+					            	<button type="submit" class="btn btn-success">
+					            		<span class="glyphicon glyphicon-search"></span>
+					            	</button>
+					            </div>
+					        </div>
+				        </form>
+				    </div>
+				    <br>
+				    <hr>
+					<p>Idea Dump</p>
+					<ul>
+					    <li ng-repeat="insight in currentInsights">
+					        <p><b>{{insight.quoteText}}</b></p>
+					        <p>
+					        	<span ng-show="insight.fullname">By {{insight.fullname}}   </span><br>
+					        	<span ng-show="insight.quoteSource">Source: {{insight.quoteSource}}   </span><br>
+					        </p>
+					    </li>
+					</ul>
+				</div>
+				<div class="col-sm-2 col-md-2">
+			    </div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
