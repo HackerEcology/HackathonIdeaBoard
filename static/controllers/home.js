@@ -35,16 +35,16 @@ app.controller('HomeController', [
             {content:'hahaha',title:'vvvv'}
         ];
 
-    }
+        $scope.FetchAllIdeas = function(){
+            IdeasFactory.getAllIdeas().then(function(d){
+                if(!d){
+                    return;
+                }else{
+                    $scope.ideas = d;
+                }
+            });
+        }
 
-    $scope.FetchAllIdeas = function(){
-        IdeasFactory.getAllIdeas().then(function(d){
-            if(!d){
-                return;
-            }else{
-                $scope.ideas = d;
-            }
-        });
     }
 
 ]);
