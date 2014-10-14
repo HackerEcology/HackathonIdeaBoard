@@ -17,6 +17,9 @@ mongoose.connect("mongodb://localhost/ThacksIdea");
 
 var app = module.exports = express();
 
+app.use(express.static(path.join(__dirname, 'static')));
+
+
 app.use(bodyParser());
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use( bodyParser.urlencoded() ); // to support URL-encoded bodies

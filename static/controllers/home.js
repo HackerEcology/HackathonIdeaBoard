@@ -22,19 +22,22 @@ app.factory('IdeasFactory',function($http,$filter,$q){
 
 app.controller('HomeController', [
 
-    '$scope',
+    '$scope','$http',
 
-    function initialize ($scope) {
+    function initialize ($scope,$http) {
 
         'use strict';
 
-        $scope.ideas = [
-            {content:'test_content', title:'test_title',author:'test_author'},
-            {content:'hahaha',title:'vvvv'},
-            {content:'hahaha',title:'vvvv'},
-            {content:'hahaha',title:'vvvv'},
-            {content:'hahaha',title:'vvvv'}
-        ];
+        $scope.ideas = [];
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3001/idea'
+        }).success(function(data){
+            console.log(data);
+            $scope.ideas = data;
+        }).error(function(data){
+
+        });
 
         $scope.FetchAllIdeas = function(){
             IdeasFactory.getAllIdeas().then(function(d){
