@@ -29,6 +29,7 @@ app.controller('HomeController', [
         'use strict';
 
         $scope.ideas = [
+            {content:'test_content', title:'test_title',author:'test_author'},
             {content:'hahaha',title:'vvvv'},
             {content:'hahaha',title:'vvvv'},
             {content:'hahaha',title:'vvvv'},
