@@ -36,6 +36,7 @@ var newUser = function(req, res, next){
 
 
 var listUser = function(req, res, next){
+  console.log("hi~ listUser");
   User.find({ },null,
     function(err, users){
       console.log(users);

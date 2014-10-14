@@ -40,7 +40,7 @@ app.use('/', routes);
 
 //User 操作
 app.post('/user', User.newUser);
-app.get('user', User.listUser);
+app.get('/user', User.listUser);
 
 //Idea 操作
 app.post('/idea',Idea.newIdea);

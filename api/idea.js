@@ -3,7 +3,7 @@ var Idea, mongoose, newIdea;
 mongoose = require("mongoose");
 
 var Idea = mongoose.model("Idea",{
-  user_id:{},
+  user_id:String,
  
   time:{ type: Date, default: Date.now }, 
   
@@ -24,6 +24,7 @@ var Idea = mongoose.model("Idea",{
 var newIdea = function(req, res, next){
 	console.log("hi newIdea~");
 	var newIdea = new Idea({
+        user_id: req.param('user_id'),
 		description: req.param('description'),
 		tags: req.param('tags')
 	});
@@ -33,7 +34,7 @@ var newIdea = function(req, res, next){
 	  	console.log(err);
 	  	res.json(500,err);
 	  }else{
-	  	res.json(200,{});
+	  	res.json(200,{success:newIdea.description});
 	  }
 	});
 
@@ -41,17 +42,17 @@ var newIdea = function(req, res, next){
 };
 
 var listIdea = function(req, res, next){
-    User.find({ },null,
-        function(err, users){
-        console.log(users);
+    Idea.find({ },null,
+        function(err, ideas){
+        console.log(ideas);
         if(!err){
-            return res.send(users);
+            return res.send(ideas);
         }
         else{
             return console.log(err);
         }
     });
-
+/*
   Idea.find(user_id)
     .sort({time: 'desc'})
     .exec(function(err, ideas){
@@ -61,7 +62,7 @@ var listIdea = function(req, res, next){
         console.log(err);
       }
     });
-
+*/
 };
 
 exports.newIdea = newIdea;
