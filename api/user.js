@@ -27,7 +27,7 @@ var newUser = function(req, res, next){
             console.log(err);
             res.json(500,err);
         }else{
-          res.json(200,{});
+          res.json(200,{success:newUser._id});
         }
       });
     }

@@ -12,17 +12,27 @@
 	forever start app.js
 ``` 
 
+#Test
 ##Website for test
 ```
 http://thu.io:3001
 ```
-
-##newIdea test
+##api test
+###newIdea test
 ```
 curl -X POST -H 'content-type:application/json' -d '{"user_id":"test","description":"this is an test_idea"}' http://localhost:3001/idea
 ```
+###newUser test
+```
+curl -X POST -H 'content-type:application/json' -d '{"user_id":"test"}' http://localhost:3001/user
+```
 
-##listUser test
+###listUser test
 ```
-curl -d 'http://localhost:3001/user'
+curl -X GET 'http://localhost:3001/user'
 ```
+###listIdea test
+```
+curl -X GET 'http://localhost:3001/idea'
+```
+
