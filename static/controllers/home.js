@@ -9,8 +9,9 @@
 var app = angular.module('IdeaBoard',['akoenig.deckgrid']);
 
 app.factory('IdeasFactory',function($http,$filter,$q){
+    var factory = {};
     factory.getAllIdeas = function(){
-        var promise = $http.get("http://128.199.160.57:9600/dump")
+        var promise = $http.get("/idea")
             .then(function(response){
                 console.log(response);
                 return response.data;
@@ -19,29 +20,22 @@ app.factory('IdeasFactory',function($http,$filter,$q){
         return promise;
     };
 
-    factory.postIdea = function(){
-        var promise = $http.post('http://localhost:3001/idea', {"user_id":"test_author","title":"test_idea","description":"this is an test_idea from frontend"});
+    factory.postIdea = function(data){
+        var promise = $http.post('/idea', data);
+        return promise;
     };
+    return factory;
 });
 
 app.controller('HomeController', [
 
-    '$scope','$http',
+    '$scope','$http','IdeasFactory',
 
-    function initialize ($scope,$http) {
+    function initialize ($scope,$http,IdeasFactory) {
 
         'use strict';
 
         $scope.ideas = [];
-        $http({
-            method: 'GET',
-            url: 'http://localhost:3001/idea'
-        }).success(function(data){
-            console.log(data);
-            $scope.ideas = data;
-        }).error(function(data){
-
-        });
 
         $scope.FetchAllIdeas = function(){
             IdeasFactory.getAllIdeas().then(function(d){
@@ -53,12 +47,36 @@ app.controller('HomeController', [
             });
         };
 
-        $scope.addIdea = function(){
-            IdeasFactory.postIdea().then(function(){
+        $scope.FetchAllIdeas();
 
-            });
+        $scope.addIdea = function(){
+            
+            IdeasFactory.postIdea({
+                title: $scope.title,
+                description: $scope.description,
+                user_id: $scope.user_id
+            }).success(function(d){
+            $scope.FetchAllIdeas(); //});
+            //IdeaFactory.postIdea($scope.quoteTxt,$scope.authorNames,$scope.sourceNames,$scope.linkNames,$scope.tagNames,$window.sessionStorage.getItem('token')).then(function(d) {//.success(function(d) {//
+
+            //console.log("anyway1");
+            //$scope.searchMyQuote();
+            /*
+            if(!d){
+                console.log("no data returned.");
+                return;
+            }else{
+                // $scope.searchMyQuote();
+                $scope.myInsights = d.reverse();
+            }*/
+
+            //console.log($scope.currentInsights);
+        });
+
         };
 
+
+        
     }
 
 ]);
