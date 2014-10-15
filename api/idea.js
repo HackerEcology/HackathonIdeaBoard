@@ -8,6 +8,8 @@ var Idea = mongoose.model("Idea",{
   time:{ type: Date, default: Date.now }, 
   
   description: String,
+
+  title: String,
   //tags: [String],
   comments: [
   {
@@ -24,7 +26,8 @@ var Idea = mongoose.model("Idea",{
 var newIdea = function(req, res, next){
 	console.log("hi newIdea~");
 	var newIdea = new Idea({
-        user_id: req.param('user_id'),
+    user_id: req.param('user_id'),
+    title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags')
 	});
