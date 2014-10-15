@@ -28,6 +28,25 @@
 	</head>
 
     <body data-ng-app="IdeaBoard" class="ng-scope">
+
+        <div>
+            <br>
+            <form role="form" ng-submit='addQuote();'>
+              <div class="form-group">
+                <label for="Quote">Insight</label>
+                <textarea ng-model="quoteTxt" class="form-control" id="quote" placeholder="Enter Insight"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="authors">Reference<!-- ; Tags #. All separated by commas "", --></label>
+                <!-- <input ng-model="authorNames" class="form-control" id="authors" name="authors" placeholder="Put any additional source here"> -->
+                <input ng-model="sourceNames" class="form-control" id="sources" name="sources" placeholder="If you have any additional source, cite it">
+                <!-- <input ng-model="linkNames" class="form-control" id="links" name="links" placeholder="link1,link2"> -->
+                <!-- <input ng-model="tagNames" class="form-control" id="tags" name="tags" placeholder="#tag1 #tag2"> -->
+              </div>
+              <button type="submit" class="btn btn-default">Add my insight</button>
+            </form>
+        </div>
+        
         <div ng-controller="HomeController">
             <div deckgrid class="deckgrid" source="ideas">
                 <div>

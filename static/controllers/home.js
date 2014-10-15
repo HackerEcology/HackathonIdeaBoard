@@ -17,7 +17,11 @@ app.factory('IdeasFactory',function($http,$filter,$q){
             });
 
         return promise;
-    }
+    };
+
+    factory.postIdea = function(){
+        var promise = $http.post('http://localhost:3001/idea', {"user_id":"test_author","title":"test_idea","description":"this is an test_idea from frontend"});
+    };
 });
 
 app.controller('HomeController', [
@@ -47,7 +51,13 @@ app.controller('HomeController', [
                     $scope.ideas = d;
                 }
             });
-        }
+        };
+
+        $scope.addIdea = function(){
+            IdeasFactory.postIdea().then(function(){
+
+            });
+        };
 
     }
 
