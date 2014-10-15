@@ -20,7 +20,7 @@ http://thu.io:3001
 ##api test
 ###newIdea test
 ```
-curl -X POST -H 'content-type:application/json' -d '{"user_id":"test","description":"this is an test_idea"}' http://localhost:3001/idea
+curl -X POST -H 'content-type:application/json' -d '{"user_id":"test_author","title":"test_idea","description":"this is an test_idea"}' http://localhost:3001/idea
 ```
 ###newUser test
 ```
