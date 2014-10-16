@@ -10,6 +10,7 @@ var Idea = mongoose.model("Idea",{
   description: String,
 
   title: String,
+  email: String,
   //tags: [String],
   comments: [
   {
@@ -27,6 +28,7 @@ var newIdea = function(req, res, next){
 	console.log("hi newIdea~");
 	var newIdea = new Idea({
     user_id: req.param('user_id'),
+    email: req.param("email"),
     title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags')

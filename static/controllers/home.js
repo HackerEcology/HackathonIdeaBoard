@@ -54,7 +54,8 @@ app.controller('HomeController', [
             IdeasFactory.postIdea({
                 title: $scope.title,
                 description: $scope.description,
-                user_id: $scope.user_id
+                user_id: $scope.user_id,
+                email: $scope.email
             }).success(function(d){
             $scope.FetchAllIdeas(); //});
             //IdeaFactory.postIdea($scope.quoteTxt,$scope.authorNames,$scope.sourceNames,$scope.linkNames,$scope.tagNames,$window.sessionStorage.getItem('token')).then(function(d) {//.success(function(d) {//
