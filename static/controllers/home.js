@@ -6,10 +6,43 @@
  *
  */
 
-var app = angular.module('IdeaBoard',['akoenig.deckgrid']);
+var app = angular.module('IdeaBoard',['akoenig.deckgrid','btford.modal']);
+
+app.factory('myModal', function (btfModal) {
+  return btfModal({
+    controller: 'MyModalCtrl',
+    controllerAs: 'modal',
+    templateUrl: 'modal.html'
+  });
+});
+
+// typically you'll inject the modal service into its own
+// controller so that the modal can close itself
+app.controller('MyModalCtrl', function ($scope,IdeasFactory,myModal) {
+  $scope.addIdea = function(){
+    IdeasFactory.postIdea({
+        title: $scope.title,
+        description: $scope.description,
+        user_id: $scope.user_id,
+        email: $scope.email
+    }).success(function(d){
+      IdeasFactory.getScope().FetchAllIdeas();
+      $scope.closeMe();
+    });
+
+  };
+  $scope.closeMe = myModal.deactivate;
+});
 
 app.factory('IdeasFactory',function($http,$filter,$q){
     var factory = {};
+    var ideaScope = {};
+    factory.getScope = function(){
+      return ideaScope;
+    };
+    factory.setScope = function(scope){
+      ideaScope = scope;
+    };
     factory.getAllIdeas = function(){
         var promise = $http.get("/idea")
             .then(function(response){
@@ -29,14 +62,14 @@ app.factory('IdeasFactory',function($http,$filter,$q){
 
 app.controller('HomeController', [
 
-    '$scope','$http','IdeasFactory',
+    '$scope','$http','IdeasFactory','myModal',
 
-    function initialize ($scope,$http,IdeasFactory) {
+    function initialize ($scope,$http,IdeasFactory,myModal) {
 
         'use strict';
 
         $scope.ideas = [];
-
+        IdeasFactory.setScope($scope);
         $scope.FetchAllIdeas = function(){
             IdeasFactory.getAllIdeas().then(function(d){
                 if(!d){
@@ -48,36 +81,11 @@ app.controller('HomeController', [
         };
 
         $scope.FetchAllIdeas();
-
-        $scope.addIdea = function(){
-            
-            IdeasFactory.postIdea({
-                title: $scope.title,
-                description: $scope.description,
-                user_id: $scope.user_id,
-                email: $scope.email
-            }).success(function(d){
-            $scope.FetchAllIdeas(); //});
-            //IdeaFactory.postIdea($scope.quoteTxt,$scope.authorNames,$scope.sourceNames,$scope.linkNames,$scope.tagNames,$window.sessionStorage.getItem('token')).then(function(d) {//.success(function(d) {//
-
-            //console.log("anyway1");
-            //$scope.searchMyQuote();
-            /*
-            if(!d){
-                console.log("no data returned.");
-                return;
-            }else{
-                // $scope.searchMyQuote();
-                $scope.myInsights = d.reverse();
-            }*/
-
-            //console.log($scope.currentInsights);
-        });
-
-        };
+        $scope.toggle = myModal.activate;
 
 
-        
+
+
     }
 
 ]);
