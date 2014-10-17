@@ -24,46 +24,54 @@
             .deckgrid .column-1-4{
                 width: 25%;
             }
+            .button-success {
+             	background: rgb(28, 184, 65); /* this is a green */
+        		font-size: 30px;
+        	}
 
 
-						.ideacard .title{
-							font-size: 18px;
-							font-weight: bold;
-							padding: 10px;
-						}
+			.ideacard .title{
+				font-size: 18px;
+				font-weight: bold;
+				padding: 10px;
+			}
 
-						.ideacard .desc{
-							padding: 10px;
-						}
+			.ideacard .desc{
+				padding: 10px;
+			}
 
-						.ideacard .author{
-							padding: 10px;
-						}
+			.ideacard .author{
+				padding: 10px;
+			}
 
-						.ideacard .email{
-							padding: 10px;
-						}
+			.ideacard .email{
+				padding: 10px;
+			}
 
 
-						body{
-							background: #EEEEEE;
-						}
+			body{
+				background: #EEEEEE;
+			}
 
-						.card-container{
-							padding: 10px;
-						}
+			.card-container{
+				padding: 10px;
+			}
 
-						.ideacard{
-							background: white;
-							border-radius: 4px;
-							box-shadow: 1px 2px 3px #CCCCCC;
-							padding: 10px;
-						}
+			.ideacard{
+				background: white;
+				border-radius: 4px;
+				box-shadow: 1px 2px 3px #CCCCCC;
+				padding: 10px;
+			}
 
-						.btf-modal{
-							background: white;
-							border: 1px black solid;
-						}
+			.btf-modal{
+				background: white;
+				border: 1px black solid;
+			}
+
+			.center {
+				text-align: center;
+			}
 
 
 
@@ -77,7 +85,9 @@
         <div ng-controller="HomeController">
             <div>
                 <br>
-								<a class='pure-button' ng-click="toggle()">New Idea</a>
+                <div class='center'>
+								<a class='button-success pure-button' ng-click="toggle()">New Idea</a>
+				</div>
                 <!--form role="form" ng-submit='addIdea();' class='pure-form pure-form-stacked'>
 									<div class='pure-g'>
 										<div class='pure-u-1-6 pure-u-md-1-3'>
