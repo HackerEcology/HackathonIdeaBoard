@@ -4,6 +4,7 @@
 
 	<head>
 		<title>THacks Ideas</title>
+		<link rel="shortcut icon" href="img/favicon.ico" /> 
 		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
         <script src="./bower_components/angular/angular.min.js"></script>
 				<script src="./bower_components/angular-deckgrid/angular-deckgrid.js"></script>
@@ -91,7 +92,7 @@
             <div>
                 <br>
                 <div class='center'>
-                	Thacks Idea Board
+                	THacks Idea Board
                 </div>
                 <div class='right'>
 							<a class='button-success pure-button' ng-click="toggle()">+ Idea</a>
@@ -124,8 +125,7 @@
                     <div class="title">{{card.title}}</div>
                     <div class="desc">{{card.description}}</div>
                     <div class="author">{{card.user_id}}</div>
-                    <div class="email">{{card.email}}</div>
-                    <!--a href="mailto:{{card.email}}">{{card.email}}</a></div--!>
+                    <div class="email"><a href="mailto:{{card.email}}">{{card.email}}</a></div>
 
                 </div>
 							</div>

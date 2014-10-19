@@ -47,8 +47,9 @@ var newIdea = function(req, res, next){
 };
 
 var listIdea = function(req, res, next){
-    Idea.find({ },null,
-        function(err, ideas){
+    Idea.find({ })
+      .sort('-time')
+      .exec(function(err, ideas){
         console.log(ideas);
         if(!err){
             return res.send(ideas);
