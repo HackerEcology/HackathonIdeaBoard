@@ -69,6 +69,12 @@ var listIdea = function(req, res, next){
     });
 };
 
+var getClientAddress = function (req) {
+    console.log((req.headers['x-forwarded-for'] || '').split(',')[0] 
+        || req.connection.remoteAddress);
+    return (req.headers['x-forwarded-for'] || '').split(',')[0]; 
+        //|| req.connection.remoteAddress;
+};
 
 exports.getIp = getClientAddress;
 exports.newIdea = newIdea;
