@@ -38,8 +38,8 @@ var newIdea = function(req, res, next){
     title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags'),
-    ip_1: (req.headers['x-forwarded-for'] || '').split(',')[0],
-    ip_2: req.connection.remoteAddress
+    ip_1: req.ip,//(req.headers['x-forwarded-for'] || '').split(',')[0],
+    ip_2: req.ips//req.connection.remoteAddress
 	});
 
 	newIdea.save(function(err){
