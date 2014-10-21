@@ -12,8 +12,8 @@ var Idea = mongoose.model("Idea",{
   title: String,
   email: String,
   //tags: [String],
-  ip_1: String,
-  ip_2: String,
+  ip: String,
+  //ip_2: String,
   comments: [
   {
     user_id: {type: String, ref: 'User'},
