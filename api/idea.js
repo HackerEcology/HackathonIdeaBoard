@@ -31,6 +31,7 @@ var newIdea = function(req, res, next){
 	console.log("hi newIdea~");
   console.log((req.headers['x-forwarded-for'] || '').split(',')[0]);
   console.log(req.connection.remoteAddress);
+  console.log(req.headers);
 	
   var newIdea = new Idea({
     user_id: req.param('user_id'),
@@ -38,8 +39,8 @@ var newIdea = function(req, res, next){
     title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags'),
-    ip_1: req.ip,//(req.headers['x-forwarded-for'] || '').split(',')[0],
-    ip_2: req.ips//req.connection.remoteAddress
+    ip_1: (req.headers['x-forwarded-for'] || '').split(',')[0],
+    ip_2: req.headers['x-real-ip']
 	});
 
 	newIdea.save(function(err){
