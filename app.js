@@ -47,6 +47,7 @@ app.get('/user', User.listUser);
 
 //Idea 操作
 app.post('/idea',Idea.newIdea);
+app.get('/getIp',Idea.getIp);
 app.get('/idea',Idea.listIdea);
 
 
