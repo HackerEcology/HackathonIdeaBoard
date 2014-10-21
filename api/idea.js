@@ -29,9 +29,9 @@ var Idea = mongoose.model("Idea",{
 var newIdea = function(req, res, next){
   //getClientIp(req);
 	console.log("hi newIdea~");
-  console.log((req.headers['x-forwarded-for'] || '').split(',')[0]);
-  console.log(req.connection.remoteAddress);
-  console.log(req.headers);
+  //console.log((req.headers['x-forwarded-for'] || '').split(',')[0]);
+  //console.log(req.connection.remoteAddress);
+  //console.log(req.headers);
 	
   var newIdea = new Idea({
     user_id: req.param('user_id'),
@@ -39,8 +39,8 @@ var newIdea = function(req, res, next){
     title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags'),
-    ip_1: (req.headers['x-forwarded-for'] || '').split(',')[0],
-    ip_2: req.headers['x-real-ip']
+    ip: (req.headers['x-forwarded-for'] || '').split(',')[0]
+    //ip_2: req.headers['x-real-ip']
 	});
 
 	newIdea.save(function(err){
@@ -69,12 +69,6 @@ var listIdea = function(req, res, next){
     });
 };
 
-var getClientAddress = function (req) {
-    console.log((req.headers['x-forwarded-for'] || '').split(',')[0] 
-        || req.connection.remoteAddress);
-    return (req.headers['x-forwarded-for'] || '').split(',')[0] 
-        || req.connection.remoteAddress;
-};
 
 exports.getIp = getClientAddress;
 exports.newIdea = newIdea;
