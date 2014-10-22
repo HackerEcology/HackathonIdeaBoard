@@ -2,6 +2,8 @@ var Idea, mongoose, newIdea;
 //var _ = require('lodash');
 mongoose = require("mongoose");
 
+var geetest = require('geetest')('6421f2c80c3a32f701f87ac7403b8b72');
+
 var Idea = mongoose.model("Idea",{
   user_id:String,
  
