@@ -41,10 +41,22 @@ var newIdea = function(req, res, next){
     title: req.param('title'),
 		description: req.param('description'),
 		tags: req.param('tags'),
-    ip: (req.headers['x-forwarded-for'] || '').split(',')[0]
+    ip: (req.headers['x-forwarded-for'] || '').split(',')[0] || req._remoteAddress 
     //ip_2: req.headers['x-real-ip']
 	});
+  //console.log(req);
+  //console.log(newIdea.ip);
+  Idea.find({ip: newIdea.ip})
+  .exec(function(err, idea){
+    if(err){
+      res.json(500,err);
+    }else if(idea){
+      console.log(idea);
+    }
+  });
 
+  console.log(req._startTime);
+  //Idea.find
 	newIdea.save(function(err){
 	  if (err){
 	  	console.log(err);
@@ -61,7 +73,7 @@ var listIdea = function(req, res, next){
     Idea.find({ })
       .sort('-time')
       .exec(function(err, ideas){
-        console.log(ideas);
+        //console.log(ideas);
         if(!err){
             return res.send(ideas);
         }
