@@ -1,4 +1,5 @@
 var Idea, mongoose, newIdea;
+var moment = require('moment');
 //var _ = require('lodash');
 mongoose = require("mongoose");
 
@@ -54,7 +55,14 @@ var newIdea = function(req, res, next){
     }else if(ideas){
       //if(ideas.length)
       //console(ideas.length());
-      console.log(ideas[0].time);
+      
+      //console.log(ideas[0].time);
+      //console.log(moment());
+      var timeLastIdea = moment(ideas[0].time);
+      var timeNow = moment();
+      console.log(timeLastIdea);
+      console.log(timeNow);
+
       //console.log(ideas);
     }
   });
