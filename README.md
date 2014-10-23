@@ -6,6 +6,11 @@
  - express + mongodb
  - redis
  - forever 
+
+# REMEMBER 
+```
+npm install
+```
  
 ##How to start
 ```
