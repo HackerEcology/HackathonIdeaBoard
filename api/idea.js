@@ -53,30 +53,28 @@ var newIdea = function(req, res, next){
     if(err){
       res.json(500,err);
     }else if(ideas){
-      //if(ideas.length)
-      //console(ideas.length());
-      
-      //console.log(ideas[0].time);
-      //console.log(moment());
       var timeLastIdea = moment(ideas[0].time);
       var timeNow = moment();
-      console.log(timeLastIdea);
-      console.log(timeNow);
-
-      //console.log(ideas);
+      var timeDiff = timeNow.diff(timeLastIdea,'minutes');   
+      console.log(timeDiff);
+      if(timeDiff > 1){
+        newIdea.save(function(err){
+          if (err){
+            console.log(err);
+            res.json(500,err);
+          }else{
+            res.json(200,{success:newIdea.description});
+          }
+        });
+      }else{
+        console.log("You publish idea too quickly");
+        res.json(401,{fail:"You publish idea too quickly"});
+      }  //console.log(ideas);
     }
   });
 
   //console.log(req._startTime);
   //Idea.find
-	newIdea.save(function(err){
-	  if (err){
-	  	console.log(err);
-	  	res.json(500,err);
-	  }else{
-	  	res.json(200,{success:newIdea.description});
-	  }
-	});
 
 
 };
