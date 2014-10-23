@@ -25,6 +25,11 @@
             <button type="submit" class="pure-button pure-button-primary">Add my idea</button>
             <button type='button' class='pure-button' ng-click="closeMe()">Cancel</button>
         </div>
+        <div class="form-group" ng-show="error">
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+
+        </div>
+
     </fieldset>
 </form>
 </div>

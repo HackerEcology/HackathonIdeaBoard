@@ -28,10 +28,15 @@ app.controller('MyModalCtrl', function ($scope,IdeasFactory,myModal) {
     }).success(function(d){
       IdeasFactory.getScope().FetchAllIdeas();
       $scope.closeMe();
+    }).error(function(d){
+      $scope.error = d.fail;
     });
 
   };
   $scope.closeMe = myModal.deactivate;
+
+  $scope.error = false;
+
 });
 
 app.factory('IdeasFactory',function($http,$filter,$q){
