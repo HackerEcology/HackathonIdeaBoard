@@ -23,7 +23,8 @@
   ],
   "dependencies": {
     "angular": "~1.2.0",
-    "angular-deckgrid": "~0.4.4"
+    "angular-deckgrid": "~0.4.4",
+    "pure-extras": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.1",
