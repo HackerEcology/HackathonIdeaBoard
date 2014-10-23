@@ -47,15 +47,19 @@ var newIdea = function(req, res, next){
   //console.log(req);
   //console.log(newIdea.ip);
   Idea.find({ip: newIdea.ip})
-  .exec(function(err, idea){
+  .sort('-time')
+  .exec(function(err, ideas){
     if(err){
       res.json(500,err);
-    }else if(idea){
-      console.log(idea);
+    }else if(ideas){
+      //if(ideas.length)
+      //console(ideas.length());
+      console.log(ideas[0].time);
+      //console.log(ideas);
     }
   });
 
-  console.log(req._startTime);
+  //console.log(req._startTime);
   //Idea.find
 	newIdea.save(function(err){
 	  if (err){
