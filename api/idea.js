@@ -52,7 +52,7 @@ var newIdea = function(req, res, next){
   .exec(function(err, ideas){
     if(err){
       res.json(500,err);
-    }else if(ideas){
+    }else if(ideas && ideas.length!=0){
       var timeLastIdea = moment(ideas[0].time);
       var timeNow = moment();
       var timeDiff = timeNow.diff(timeLastIdea,'minutes');   
@@ -70,6 +70,15 @@ var newIdea = function(req, res, next){
         console.log("You publish idea too quickly");
         res.json(401,{fail:"You publish idea too quickly"});
       }  //console.log(ideas);
+    }else{
+      newIdea.save(function(err){
+          if (err){
+            console.log(err);
+            res.json(500,err);
+          }else{
+            res.json(200,{success:newIdea.description});
+          }
+      });
     }
   });
 
