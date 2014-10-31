@@ -6,7 +6,7 @@
  *
  */
 
-var app = angular.module('IdeaBoard',['akoenig.deckgrid','btford.modal']);
+var app = angular.module('IdeaBoard',['akoenig.deckgrid','btford.modal','ngSanitize']);
 
 app.factory('myModal', function (btfModal) {
   return btfModal({

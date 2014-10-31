@@ -7,6 +7,7 @@
 		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
         <script src="./bower_components/angular/angular.min.js"></script>
 		<script src="./bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+		<script src="./bower_components/ngSanitize/index.js"></script>
 		<script src="./bower_components/angular-modal/modal.min.js"></script>
 		<link rel="stylesheet" href="./bower_components/angular-modal/modal.css" media="screen" title="no title" charset="utf-8">
 
@@ -124,7 +125,7 @@
 							<div class="card-container">
                 <div class="ideacard">
                     <div class="title">{{card.title}}</div>
-                    <div class="desc">{{card.description}}</div>
+                    <div class="desc" ng-bind-html='card.description | linky : '_blank''></div>
                     <div class="author">{{card.user_id}}</div>
                     <div class="email"><a href="mailto:{{card.email}}">{{card.email}}</a></div>
 
