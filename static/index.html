@@ -87,6 +87,7 @@
     <body data-ng-app="IdeaBoard" class="ng-scope">
 
         <div ng-controller="HomeController">
+
             <div>
                 <br>
                 <div class='center'>
@@ -117,6 +118,12 @@
 									</div>
                 </form-->
             </div>
+        <script src="./bower_components/angular/angular.min.js"></script>
+		<script src="./bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+		<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+		<script src="./bower_components/angular-modal/modal.min.js"></script>
+		<script src="./controllers/home.js"></script>
+		
             <div deckgrid class="deckgrid" source="ideas">
 							<div class="card-container">
                 <div class="ideacard">
@@ -131,11 +138,7 @@
         </div>
 
 
-        <script src="./bower_components/angular/angular.min.js"></script>
-		<script src="./bower_components/angular-deckgrid/angular-deckgrid.js"></script>
-		<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-		<script src="./bower_components/angular-modal/modal.min.js"></script>
-		 <script src="./controllers/home.js"></script>
+        
 	</body>
 
 </html>
